@@ -15,7 +15,7 @@ class ZzdBuriedPointClass implements ZzdBuriedPointImplementsType {
                 this.currConfig = config[type]
                 this.isValidity = true
             } else {
-                throw Error(`请先至config.ts配置类型【${type}】的浙政钉相关配置，再重启项目。`)
+                throw Error(`请先至vite.config插件选项配置【vitejs-plugin-zzd-buried-point】配置类型为【${type}】的浙政钉相关配置信息，再重启项目。`)
             }
         } else {
             this.isValidity = false

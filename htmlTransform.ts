@@ -7,7 +7,7 @@ import config from './config'
 const htmlTransform = async(html:string, type:ZzdBuriedPointType) => {
     if (Object.prototype.toString.call(type) === '[object String]') {
         if (!config[type]) {
-            throw Error(`请先至ZzdBuriedPoint目录下 config.ts 配置类型【${type}】的浙政钉相关配置，再重启项目。`)
+            throw Error(`请先至vite.config插件选项配置【vitejs-plugin-zzd-buried-point】配置类型为【${type}】的浙政钉相关配置信息，再重启项目。`)
         }
         if (!html) {
             throw Error('html 不能为空')
