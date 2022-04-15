@@ -56,7 +56,7 @@ var htmlTransform = function (html, type) { return __awaiter(void 0, void 0, voi
     return __generator(this, function (_a) {
         if (Object.prototype.toString.call(type) === '[object String]') {
             if (!config_1["default"][type]) {
-                throw Error("\u8BF7\u5148\u81F3ZzdBuriedPoint\u76EE\u5F55\u4E0B config.ts \u914D\u7F6E\u7C7B\u578B\u3010".concat(type, "\u3011\u7684\u6D59\u653F\u9489\u76F8\u5173\u914D\u7F6E\uFF0C\u518D\u91CD\u542F\u9879\u76EE\u3002"));
+                throw Error("\u8BF7\u5148\u81F3vite.config\u63D2\u4EF6\u9009\u9879\u914D\u7F6E\u3010vitejs-plugin-zzd-buried-point\u3011\u914D\u7F6E\u7C7B\u578B\u4E3A\u3010".concat(type, "\u3011\u7684\u6D59\u653F\u9489\u76F8\u5173\u914D\u7F6E\u4FE1\u606F\uFF0C\u518D\u91CD\u542F\u9879\u76EE\u3002"));
             }
             if (!html) {
                 throw Error('html 不能为空');
