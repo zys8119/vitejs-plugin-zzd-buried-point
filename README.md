@@ -2,6 +2,12 @@
 
 vite 浙政钉埋点插件
 
+## 安装
+
+```shell
+npm i vitejs-plugin-zzd-buried-point --save-dev
+```
+
 ## 使用指南
 
 ### vite 插件注入
