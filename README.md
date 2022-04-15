@@ -64,3 +64,17 @@ new ZzdBuriedPoint($zzdCode).createUserInfoBurialPoint({
 })
 //todo <!--【结束】==========浙政钉埋点用户信息，禁止删除=======-->
 ```
+
+
+### 使用配置
+
+> 请在对应的开发模式下的环境变量设置对应的浙政钉埋点code
+
+例如：开发模式下，则在 .env.development 文件中加入以下代码
+```shell
+# 浙政钉埋点code
+VITE_ZZD_CODE=zzdTestCode
+
+# 你的其他环境配置
+# ....
+```
