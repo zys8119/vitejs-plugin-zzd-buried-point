@@ -1,12 +1,9 @@
 import {ConfigEnv, Plugin, UserConfig, mergeConfig, loadEnv} from 'vite'
-import {writeFileSync, readFileSync} from 'fs'
+import {writeFileSync, readFileSync, existsSync} from 'fs'
 import {resolve} from 'path'
 import zzdHtmlTransform from './htmlTransform'
 import {zzdCodeConfig} from './type'
-let envObj = {} as {
-    [key:string]:any;
-    VITE_ZZD_CODE:any
-}
+let VITE_ZZD_CODE = null
 export default (config:zzdCodeConfig) => {
     const configPath = resolve(__dirname,'config.ts')
     const configTmpPath = resolve(__dirname,'config_tmp.ts')
@@ -17,16 +14,23 @@ export default (config:zzdCodeConfig) => {
         name: 'ZzdBuriedPoint-html-transform',
         transformIndexHtml(html: string) {
             //todo <!--【开始】==========浙政钉埋点html模板信息注入，禁止删除=======-->
-            html = zzdHtmlTransform(html, envObj.VITE_ZZD_CODE || null) as any
+            html = zzdHtmlTransform(html, VITE_ZZD_CODE || null) as any
             //todo <!--【结束】==========浙政钉埋点html模板信息注入，禁止删除=======-->
             return html
         },
         config(config: UserConfig, env: ConfigEnv) {
             //todo  浙政钉埋点 code 禁止删除==================
-            envObj = loadEnv(env.mode, resolve(process.cwd(),`.env.${env.mode}`)) as any
+            // const aa = fs_1.readFileSync((0, path_1.resolve)(process.cwd(), ".env.".concat(env.mode)),"utf-8")
+            // console.log((aa.match(/VITE_ZZD_CODE=(.*)/) || [])[1])
+            // envObj = loadEnv(env.mode, resolve(process.cwd(),`.env.${env.mode}`)) as any
+            const envPath = resolve(process.cwd(),`.env.${env.mode}`)
+            if(existsSync(envPath)){
+                VITE_ZZD_CODE = readFileSync(envPath,"utf-8")
+                VITE_ZZD_CODE = (VITE_ZZD_CODE.match(/VITE_ZZD_CODE=(.*)/img) || [])[1];
+            }
             return mergeConfig(config,<UserConfig>{
                 define:{
-                    $zzdCode:JSON.stringify(envObj.VITE_ZZD_CODE || null)
+                    $zzdCode:JSON.stringify(VITE_ZZD_CODE || null)
                 },
             })
             //todo  浙政钉埋点 code 禁止删除==================
