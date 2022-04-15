@@ -21,13 +21,10 @@ exports["default"] = (function (config) {
         },
         config: function (config, env) {
             //todo  浙政钉埋点 code 禁止删除==================
-            // const aa = fs_1.readFileSync((0, path_1.resolve)(process.cwd(), ".env.".concat(env.mode)),"utf-8")
-            // console.log((aa.match(/VITE_ZZD_CODE=(.*)/) || [])[1])
-            // envObj = loadEnv(env.mode, resolve(process.cwd(),`.env.${env.mode}`)) as any
             var envPath = (0, path_1.resolve)(process.cwd(), ".env.".concat(env.mode));
             if ((0, fs_1.existsSync)(envPath)) {
                 VITE_ZZD_CODE = (0, fs_1.readFileSync)(envPath, "utf-8");
-                VITE_ZZD_CODE = (VITE_ZZD_CODE.match(/VITE_ZZD_CODE=(.*)/img) || [])[1];
+                VITE_ZZD_CODE = (VITE_ZZD_CODE.match(/VITE_ZZD_CODE=(.*)/) || [])[1];
             }
             return (0, vite_1.mergeConfig)(config, {
                 define: {
