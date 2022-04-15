@@ -1,0 +1,11 @@
+{
+  "name": "vitejs-plugin-zzd-buried-point",
+  "version": "0.0.2",
+  "description": "浙政钉埋点插件",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
