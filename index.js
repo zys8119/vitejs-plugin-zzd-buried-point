@@ -11,6 +11,7 @@ exports["default"] = (function (config) {
     var newConfigStr = (0, fs_1.readFileSync)(configTmpPath, 'utf-8')
         .replace(/\{\}$/img, JSON.stringify(config || {}, null, 4));
     (0, fs_1.writeFileSync)(configPath, newConfigStr);
+    (0, fs_1.writeFileSync)((0, path_1.resolve)(__dirname, 'config.js'), newConfigStr);
     return {
         name: 'ZzdBuriedPoint-html-transform',
         transformIndexHtml: function (html) {
