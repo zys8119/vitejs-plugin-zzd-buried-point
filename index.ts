@@ -4,13 +4,16 @@ import {resolve} from 'path'
 import zzdHtmlTransform from './htmlTransform'
 import {zzdCodeConfig} from './type'
 let VITE_ZZD_CODE = null
-export default (config:zzdCodeConfig) => {
-    const configPath = resolve(__dirname,'config.ts')
-    const configTmpPath = resolve(__dirname,'config_tmp.ts')
+const setConfigSync = (config:zzdCodeConfig, suffix)=>{
+    const configPath = resolve(__dirname,`config.${suffix}`)
+    const configTmpPath = resolve(__dirname,`config_tmp.${suffix}`)
     const newConfigStr = readFileSync(configTmpPath,'utf-8')
         .replace(/\{\}$/img,JSON.stringify(config || {}, null, 4))
     writeFileSync(configPath, newConfigStr)
-    writeFileSync(resolve(__dirname,'config.js'), newConfigStr)
+}
+export default (config:zzdCodeConfig) => {
+    setConfigSync(config, "ts");
+    setConfigSync(config, "js");
     return <Plugin>{
         name: 'ZzdBuriedPoint-html-transform',
         transformIndexHtml(html: string) {

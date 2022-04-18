@@ -5,13 +5,16 @@ var fs_1 = require("fs");
 var path_1 = require("path");
 var htmlTransform_1 = require("./htmlTransform");
 var VITE_ZZD_CODE = null;
-exports["default"] = (function (config) {
-    var configPath = (0, path_1.resolve)(__dirname, 'config.ts');
-    var configTmpPath = (0, path_1.resolve)(__dirname, 'config_tmp.ts');
+var setConfigSync = function (config, suffix) {
+    var configPath = (0, path_1.resolve)(__dirname, "config.".concat(suffix));
+    var configTmpPath = (0, path_1.resolve)(__dirname, "config_tmp.".concat(suffix));
     var newConfigStr = (0, fs_1.readFileSync)(configTmpPath, 'utf-8')
         .replace(/\{\}$/img, JSON.stringify(config || {}, null, 4));
     (0, fs_1.writeFileSync)(configPath, newConfigStr);
-    (0, fs_1.writeFileSync)((0, path_1.resolve)(__dirname, 'config.js'), newConfigStr);
+};
+exports["default"] = (function (config) {
+    setConfigSync(config, "ts");
+    setConfigSync(config, "js");
     return {
         name: 'ZzdBuriedPoint-html-transform',
         transformIndexHtml: function (html) {
