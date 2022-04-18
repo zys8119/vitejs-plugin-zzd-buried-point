@@ -4,7 +4,7 @@
   "description": "浙政钉埋点插件",
   "main": "index.js",
   "scripts": {
-    "build": "tsc index.ts",
+    "build": "tsc index.ts && tsc ZzdBuriedPoint.ts",
     "test": "ts-node test.ts"
   },
   "author": "",
