@@ -42,7 +42,7 @@ export default defineConfig({
 import ZzdBuriedPoint from 'vitejs-plugin-zzd-buried-point/ZzdBuriedPoint'
 router.beforeEach(async(to, from, next) => {
     //todo <!--【开始】==========浙政钉埋点基础信息，禁止删除=======-->
-    new ZzdBuriedPoint($zzdCode).createBaseBurialPoint({
+    new ZzdBuriedPoint(zzdCode).createBaseBurialPoint({
         page_id: to.fullPath,
         page_name: to.name as any,
         page_url: to.path,
@@ -58,7 +58,7 @@ router.beforeEach(async(to, from, next) => {
 ```typescript
 import ZzdBuriedPoint from 'vitejs-plugin-zzd-buried-point/ZzdBuriedPoint'
 //todo <!--【开始】==========浙政钉埋点用户信息，禁止删除=======-->
-new ZzdBuriedPoint($zzdCode).createUserInfoBurialPoint({
+new ZzdBuriedPoint(zzdCode).createUserInfoBurialPoint({
     _user_nick:'用户名称',
     _user_id:'用户id',
 })
