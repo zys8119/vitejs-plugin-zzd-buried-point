@@ -65,12 +65,36 @@ new ZzdBuriedPoint($zzdCode).createUserInfoBurialPoint({
 //todo <!--【结束】==========浙政钉埋点用户信息，禁止删除=======-->
 ```
 
+### 稳定性监控、通用采集
+
+3、index.html添加以下注释
+
+```html
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <!--【开始】==========浙政钉埋点html信息，禁止删除=======-->
+    <!--${zzdHtml}-->
+    <!--【结束】==========浙政钉埋点html信息，禁止删除=======-->
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
+
+```
+
 
 ### 使用配置
 
 > 请在对应的开发模式下的环境变量设置对应的浙政钉埋点code
 
-例如：开发模式下，则在 .env.development 文件中加入以下代码
+例如：开发模式下，则在 `.env.production` 文件中加入以下代码， 建议在生产模式加即`.env.production`文件
 ```shell
 # 浙政钉埋点code
 VITE_ZZD_CODE=zzdTestCode

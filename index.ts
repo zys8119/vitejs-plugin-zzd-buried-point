@@ -10,6 +10,7 @@ export default (config:zzdCodeConfig) => {
     const newConfigStr = readFileSync(configTmpPath,'utf-8')
         .replace(/\{\}$/img,JSON.stringify(config || {}, null, 4))
     writeFileSync(configPath, newConfigStr)
+    writeFileSync(resolve(__dirname,'config.js'), newConfigStr)
     return <Plugin>{
         name: 'ZzdBuriedPoint-html-transform',
         transformIndexHtml(html: string) {
