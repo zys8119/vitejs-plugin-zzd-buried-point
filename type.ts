@@ -85,7 +85,7 @@ export class wpkReporterClass {
 }
 
 declare global {
-    const $zzdCode:ZzdBuriedPointType
+    const zzdCode:ZzdBuriedPointType
     const aplus_queue:aplus_queue
     const wpkReporter:typeof wpkReporterClass
     const _wpk:typeof wpkReporterClass

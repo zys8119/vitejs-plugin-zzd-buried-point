@@ -23,6 +23,9 @@ export default (config:zzdCodeConfig) => {
             });
             // todo <!--【结束】==========浙政钉埋点html模板信息注入，禁止删除=======-->
         },
+        configResolved(resolvedConfig){
+
+        },
         config(config: UserConfig, env: ConfigEnv) {
             //todo  浙政钉埋点 code 禁止删除==================
             const envPath = resolve(process.cwd(),`.env.${env.mode}`)
@@ -32,7 +35,7 @@ export default (config:zzdCodeConfig) => {
             }
             return mergeConfig(config,<UserConfig>{
                 define:{
-                    $zzdCode:JSON.stringify(VITE_ZZD_CODE || null)
+                    $zzdCode:VITE_ZZD_CODE ? `'${VITE_ZZD_CODE}'` : null
                 },
             })
             //todo  浙政钉埋点 code 禁止删除==================
