@@ -32,7 +32,7 @@ export default (config:zzdCodeConfig) => {
             }
             return mergeConfig(config,<UserConfig>{
                 define:{
-                    zzdCode:VITE_ZZD_CODE ? `'${VITE_ZZD_CODE}'` : null
+                    zzdCode:VITE_ZZD_CODE ? `'${VITE_ZZD_CODE}'` : `'null'`
                 },
             })
             //todo  浙政钉埋点 code 禁止删除==================
