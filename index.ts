@@ -1,7 +1,6 @@
 import {ConfigEnv, Plugin, UserConfig, mergeConfig, loadEnv} from 'vite'
 import {writeFileSync, readFileSync, existsSync} from 'fs'
 import {resolve} from 'path'
-// import zzdHtmlTransform from './htmlTransform'
 import {zzdCodeConfig} from './type'
 let VITE_ZZD_CODE = null
 const setConfigSync = (config:zzdCodeConfig, suffix)=>{
@@ -32,7 +31,7 @@ export default (config:zzdCodeConfig) => {
             }
             return mergeConfig(config,<UserConfig>{
                 define:{
-                    zzdCode:VITE_ZZD_CODE ? `'${VITE_ZZD_CODE}'` : `'null'`
+                    zzdCode:VITE_ZZD_CODE ? `'${VITE_ZZD_CODE}'` : `null`
                 },
             })
             //todo  浙政钉埋点 code 禁止删除==================

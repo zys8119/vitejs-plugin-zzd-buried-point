@@ -32,7 +32,7 @@ exports["default"] = (function (config) {
             }
             return (0, vite_1.mergeConfig)(config, {
                 define: {
-                    zzdCode: VITE_ZZD_CODE ? "'".concat(VITE_ZZD_CODE, "'") : "'null'"
+                    zzdCode: VITE_ZZD_CODE ? "'".concat(VITE_ZZD_CODE, "'") : "null"
                 }
             });
             //todo  浙政钉埋点 code 禁止删除==================
