@@ -65,7 +65,7 @@ var htmlTransform = function (html, type) { return __awaiter(void 0, void 0, voi
                 throw Error('这样钉配置类别名称type 不能为空');
             }
             try {
-                zzdHtml = lodash.template((0, fs_1.readFileSync)((0, path_1.resolve)(__dirname, './index.html'), 'utf-8'))(__assign(__assign({}, config_1["default"][type]), { gateway: config_1["default"][type].gateway || 'zjzwfw.gov.cn' }));
+                zzdHtml = lodash.template((0, fs_1.readFileSync)((0, path_1.resolve)(__dirname, './index.html'), 'utf-8'))(__assign(__assign({}, config_1["default"][type]), { gateway: config_1["default"][type].gateway || 'ding.zi.gov.cn' }));
                 return [2 /*return*/, Promise.resolve(lodash.template(html)({
                         zzdHtml: "-->".concat(zzdHtml, "<!--")
                     }))];
