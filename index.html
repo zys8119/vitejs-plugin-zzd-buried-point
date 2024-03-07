@@ -1,4 +1,4 @@
-<script src='//wpk-gate-emas.<%= gateway %>/static/wpk-jssdk.1.0.2/wpkReporter.js' crossorigin='true'></script>
+<script src='//wpkgate-emas.<%= gateway %>/static/wpk-jssdk.1.0.2/wpkReporter.js' crossorigin='true'></script>
 <script type="application/javascript">
     /**
      *  浙政钉--稳定性监控
@@ -7,7 +7,7 @@
         const config = {
             bid: "<%= bid %>",
             signkey: "<%= signkey %>",
-            gateway: "//wpk-gate-emas.<%= gateway %>"
+            gateway: "//wpkgate-emas.<%= gateway %>"
         };
         const wpk = new wpkReporter(config);
         wpk.installAll();
