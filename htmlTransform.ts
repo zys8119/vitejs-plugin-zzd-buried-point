@@ -18,7 +18,7 @@ const htmlTransform = async(html:string, type:ZzdBuriedPointType) => {
         try {
             const zzdHtml = lodash.template(readFileSync(resolve(__dirname,'./index.html'),'utf-8'))({
                 ...config[type],
-                gateway:config[type].gateway || 'ding.zi.gov.cn'
+                gateway:config[type].gateway || 'ding.zj.gov.cn'
             })
             return Promise.resolve(lodash.template(html)({
                 zzdHtml:`-->${zzdHtml}<!--`
